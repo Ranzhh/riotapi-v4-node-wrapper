@@ -1,0 +1,34 @@
+{
+  "name": "crescendo",
+  "version": "0.1.0",
+  "description": "A Node.js wrapper for the Riot API, for me to use in personal projects. Not currently distributed as a Node package.",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node .",
+    "dev": "ts-node-dev src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ranzhh/crescendo.git"
+  },
+  "author": "Matteo Ranzetti",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Ranzhh/crescendo/issues"
+  },
+  "homepage": "https://github.com/Ranzhh/crescendo#readme",
+  "devDependencies": {
+    "@types/node": "^12.11.5",
+    "ts-node-dev": "^1.0.0-pre.43",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "@types/request-promise": "^4.1.44",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
+}
