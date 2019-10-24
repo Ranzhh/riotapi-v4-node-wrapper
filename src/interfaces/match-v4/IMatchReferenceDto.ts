@@ -1,17 +1,17 @@
 interface IMatchReferenceDto {
-    lane: string
-    
-    gameId: number
+    lane: string;
 
-    champion: number
+    gameId: number;
 
-    platformId: string
+    champion: number;
 
-    season: number
+    platformId: string;
 
-    queue: number
+    season: number;
 
-    role: string
+    queue: number;
 
-    timestamp: number
+    role: string;
+
+    timestamp: number;
 }
