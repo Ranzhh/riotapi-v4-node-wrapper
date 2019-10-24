@@ -1,7 +1,8 @@
 {
     "defaultSeverity": "error",
     "rules": {
-        "no-console": false
+        "no-console": false,
+        "max-line-length": false
     },
     "extends": [
         "tslint:recommended"
