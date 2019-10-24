@@ -1,4 +1,4 @@
-import { MatchV4 } from "./match-v4";
+import { MatchV4 } from "./apis/match-v4";
 
 export default class Crescendo {
     public matchV4: MatchV4;
