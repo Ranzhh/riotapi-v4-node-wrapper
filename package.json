@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Ranzhh/crescendo#readme",
   "devDependencies": {
+    "@types/es6-promise": "^3.3.0",
     "@types/node": "^12.11.5",
     "ts-node-dev": "^1.0.0-pre.43",
     "tslint": "^5.20.0",
