@@ -13,7 +13,7 @@ interface IMatchParticipantFrameDto {
 
     dominionScore: number;
 
-    position: MatchPositionDto;
+    position: IMatchPositionDto;
 
     xp: number;
 

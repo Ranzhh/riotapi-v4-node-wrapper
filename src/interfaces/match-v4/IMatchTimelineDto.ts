@@ -1,5 +1,5 @@
 interface IMatchTimelineDto {
-    frames: MatchFrameDto[];
+    frames: IMatchFrameDto[];
 
     frameInterval: number;
 }

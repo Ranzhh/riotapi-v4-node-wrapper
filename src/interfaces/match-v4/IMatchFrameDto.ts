@@ -1,7 +1,7 @@
 interface IMatchFrameDto {
     timestamp: number;
 
-    participantFrames: Map<string, MatchParticipantFrameDto>;
+    participantFrames: Map<string, IMatchParticipantFrameDto>;
 
-    events: MatchEventDto[];
+    events: IMatchEventDto[];
 }
