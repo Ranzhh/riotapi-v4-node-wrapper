@@ -73,6 +73,19 @@ export class MatchV4 {
     }
 
     /**
+     * Get match timeline by match ID.
+     * @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
+     * @param matchID - the Match ID of the game.
+     * @param region - the Region on which the match was played.
+     * @returns {Promise<IMatchTimelineDto>} Promise of the timeline data for the game.
+     */
+    public async getMatchTimeline(matchID: string, region: string): Promise<IMatchTimelineDto> {
+        return await netcall(region, `match/v4/timelines/by-match/${matchID}`, this.key)
+            .then((res: IMatchTimelineDto) => resolve(res))
+            .catch((err: IRiotApiError) => reject(err));
+    }
+
+    /**
      * Get match IDs by tournament code.
      * @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
      * @param tournamentCode - the Tournament Code of the tournament.
