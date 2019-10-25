@@ -77,7 +77,7 @@ export class MatchV4 {
      * @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
      * @param tournamentCode - the Tournament Code of the tournament.
      * @param region - the Region on which the tournament was hosted.
-     * @returns {Promise<IMatchDto>} Promise of the match data for the game.
+     * @returns {Promise<number[]>} Promise of a list of match IDs..
      */
     public async getMatchIdsByTournamentCode(tournamentCode: string, region: string): Promise<number[]> {
         return await netcall(region, `match/v4/matches/by-tournament-code/${tournamentCode}/ids`, this.key)
