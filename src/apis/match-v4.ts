@@ -84,4 +84,18 @@ export class MatchV4 {
             .then((res: number[]) => resolve(res))
             .catch((err: IRiotApiError) => reject(err));
     }
+
+    /**
+     * Get match by match ID and tournament code.
+     * @link https://developer.riotgames.com/api-methods/#match-v4/GET_getMatchByTournamentCode
+     * @param matchID - the Match ID of the game.
+     * @param tournamentCode - the Tournament Code of the tournament.
+     * @param region - the Region on which the match was played.
+     * @returns {Promise<IMatchDto>} Promise of the match data for the game.
+     */
+    public async getMatchByTournamentCode(matchID: string, tournamentCode: string, region: string): Promise<IMatchDto> {
+        return await netcall(region, `match/v4/matches/${matchID}/by-tournament-code/${tournamentCode}`, this.key)
+            .then((res: IMatchDto) => resolve(res))
+            .catch((err: IRiotApiError) => reject(err));
+    }
 }
