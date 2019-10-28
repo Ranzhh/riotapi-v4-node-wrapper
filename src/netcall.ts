@@ -1,7 +1,7 @@
 import { reject, resolve } from "bluebird";
 import rp from "request-promise";
 
-export const netcall = async (region: string, endpoint: string, key: string): Promise<{}> => {
+export const netcall = async<T> (region: string, endpoint: string, key: string): Promise<T> => {
     const options = {
         headers: {
             "User-Agent": "Request-Promise",
@@ -11,6 +11,5 @@ export const netcall = async (region: string, endpoint: string, key: string): Pr
         uri: `https://${region}.api.riotgames.com/lol/${endpoint}`,
     };
 
-    const data = await rp(options).then((res: {}) => resolve(res)).catch((err: IRiotApiError) => reject(err));
-    return data;
+    return rp(options);
 };

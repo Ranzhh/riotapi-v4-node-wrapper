@@ -16,9 +16,7 @@ export class MatchV4 {
      * @returns {Promise<IMatchDto>} Promise of the match data for the game.
      */
     public async getMatch(matchID: string, region: string): Promise<IMatchDto> {
-        return await netcall(region, `match/v4/matches/${matchID}`, this.key)
-            .then((res: IMatchDto) => resolve(res))
-            .catch((err: IRiotApiError) => reject(err));
+        return netcall<IMatchDto>(region, `match/v4/matches/${matchID}`, this.key);
     }
 
     /**
@@ -67,9 +65,7 @@ export class MatchV4 {
             optionsString += currentOptions[i];
         }
 
-        return await netcall(region, `match/v4/matchlists/by-account/${encryptedAccountID}${optionsString}`, this.key)
-            .then((res: IMatchlistDto) => resolve(res))
-            .catch((err: IRiotApiError) => reject(err));
+        return netcall<IMatchlistDto>(region, `match/v4/matchlists/by-account/${encryptedAccountID}${optionsString}`, this.key);
     }
 
     /**
@@ -80,9 +76,7 @@ export class MatchV4 {
      * @returns {Promise<IMatchTimelineDto>} Promise of the timeline data for the game.
      */
     public async getMatchTimeline(matchID: string, region: string): Promise<IMatchTimelineDto> {
-        return await netcall(region, `match/v4/timelines/by-match/${matchID}`, this.key)
-            .then((res: IMatchTimelineDto) => resolve(res))
-            .catch((err: IRiotApiError) => reject(err));
+        return netcall<IMatchTimelineDto>(region, `match/v4/timelines/by-match/${matchID}`, this.key);
     }
 
     /**
@@ -90,12 +84,10 @@ export class MatchV4 {
      * @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
      * @param tournamentCode - the Tournament Code of the tournament.
      * @param region - the Region on which the tournament was hosted.
-     * @returns {Promise<number[]>} Promise of a list of match IDs..
+     * @returns {Promise<number[]>} Promise of a list of match IDs.
      */
     public async getMatchIdsByTournamentCode(tournamentCode: string, region: string): Promise<number[]> {
-        return await netcall(region, `match/v4/matches/by-tournament-code/${tournamentCode}/ids`, this.key)
-            .then((res: number[]) => resolve(res))
-            .catch((err: IRiotApiError) => reject(err));
+        return netcall<number[]>(region, `match/v4/matches/by-tournament-code/${tournamentCode}/ids`, this.key);
     }
 
     /**
@@ -107,8 +99,6 @@ export class MatchV4 {
      * @returns {Promise<IMatchDto>} Promise of the match data for the game.
      */
     public async getMatchByTournamentCode(matchID: string, tournamentCode: string, region: string): Promise<IMatchDto> {
-        return await netcall(region, `match/v4/matches/${matchID}/by-tournament-code/${tournamentCode}`, this.key)
-            .then((res: IMatchDto) => resolve(res))
-            .catch((err: IRiotApiError) => reject(err));
+        return netcall<IMatchDto>(region, `match/v4/matches/${matchID}/by-tournament-code/${tournamentCode}`, this.key);
     }
 }

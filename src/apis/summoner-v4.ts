@@ -16,9 +16,7 @@ export class SummonerV4 {
      * @returns {Promise<ISummonerDto>} Promise of the summoner data.
      */
     public async getSummonerByAccountId(encryptedAccountId: string, region: string): Promise<ISummonerDto> {
-        return await netcall(region, `summoner/v4/summoners/by-account/${encryptedAccountId}`, this.key)
-            .then((res: ISummonerDto) => resolve(res))
-            .catch((err: IRiotApiError) => reject(err));
+        return netcall<ISummonerDto>(region, `summoner/v4/summoners/by-account/${encryptedAccountId}`, this.key);
     }
 
     /**
@@ -29,9 +27,7 @@ export class SummonerV4 {
      * @returns {Promise<ISummonerDto>} Promise of the summoner data.
      */
     public async getSummonerByName(summonerName: string, region: string): Promise<ISummonerDto> {
-        return await netcall(region, `summoner/v4/summoners/by-name/${summonerName}`, this.key)
-            .then((res: ISummonerDto) => resolve(res))
-            .catch((err: IRiotApiError) => reject(err));
+        return netcall<ISummonerDto>(region, `summoner/v4/summoners/by-name/${summonerName}`, this.key);
     }
 
     /**
@@ -42,9 +38,7 @@ export class SummonerV4 {
      * @returns {Promise<ISummonerDto>} Promise of the summoner data.
      */
     public async getSummonerByPUUID(encryptedPUUID: string, region: string): Promise<ISummonerDto> {
-        return await netcall(region, `summoner/v4/summoners/by-puuid/${encryptedPUUID}`, this.key)
-            .then((res: ISummonerDto) => resolve(res))
-            .catch((err: IRiotApiError) => reject(err));
+        return netcall<ISummonerDto>(region, `summoner/v4/summoners/by-puuid/${encryptedPUUID}`, this.key);
     }
 
     /**
@@ -55,8 +49,6 @@ export class SummonerV4 {
      * @returns {Promise<ISummonerDto>} Promise of the summoner data.
      */
     public async getSummonerBySummonerId(encryptedSummonerId: string, region: string): Promise<ISummonerDto> {
-        return await netcall(region, `summoner/v4/summoners/${encryptedSummonerId}`, this.key)
-            .then((res: ISummonerDto) => resolve(res))
-            .catch((err: IRiotApiError) => reject(err));
+        return netcall<ISummonerDto>(region, `summoner/v4/summoners/${encryptedSummonerId}`, this.key);
     }
 }
