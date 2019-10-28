@@ -2,8 +2,14 @@ import { key } from "./config.json";
 import Crescendo from "./crescendo";
 
 const test = async () => {
+    // Initialise Crescendo object
     const crescendo = new Crescendo(key);
-    const matchData = await crescendo.matchV4.getMatch("matchid", "region").then(console.log).catch(console.log);
+
+    // Get data for a given summoner name
+    const summonerData = await crescendo.summonerV4.getSummonerByName("Ranzhh", "EUW1");
+
+    // Get all normal games played by the summoner as Ashe in Season 2019.
+    const matches = await crescendo.matchV4.getMatchlist(summonerData.accountId, "EUW1",  { champion: 22, season: 13, queue: 420 }).then(console.log);
 };
 
 test();
