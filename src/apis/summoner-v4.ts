@@ -46,4 +46,17 @@ export class SummonerV4 {
             .then((res: ISummonerDto) => resolve(res))
             .catch((err: IRiotApiError) => reject(err));
     }
+
+    /**
+     * Get a summoner by summoner ID.
+     * @link https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerId
+     * @param encryptedSummonerId - the encrypted summoner ID of the summoner.
+     * @param region - the Region on which the summoner plays.
+     * @returns {Promise<ISummonerDto>} Promise of the summoner data.
+     */
+    public async getSummonerBySummonerId(encryptedSummonerId: string, region: string): Promise<ISummonerDto> {
+        return await netcall(region, `summoner/v4/summoners/${encryptedSummonerId}`, this.key)
+            .then((res: ISummonerDto) => resolve(res))
+            .catch((err: IRiotApiError) => reject(err));
+    }
 }
