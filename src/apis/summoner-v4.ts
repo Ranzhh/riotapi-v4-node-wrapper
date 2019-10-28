@@ -33,4 +33,17 @@ export class SummonerV4 {
             .then((res: ISummonerDto) => resolve(res))
             .catch((err: IRiotApiError) => reject(err));
     }
+
+    /**
+     * Get a summoner by PUUID.
+     * @link https://developer.riotgames.com/apis#summoner-v4/GET_getByPUUID
+     * @param encryptedPUUID - the PUUID of the summoner.
+     * @param region - the Region on which the summoner plays.
+     * @returns {Promise<ISummonerDto>} Promise of the summoner data.
+     */
+    public async getSummonerByPUUID(encryptedPUUID: string, region: string): Promise<ISummonerDto> {
+        return await netcall(region, `summoner/v4/summoners/by-puuid/${encryptedPUUID}`, this.key)
+            .then((res: ISummonerDto) => resolve(res))
+            .catch((err: IRiotApiError) => reject(err));
+    }
 }
