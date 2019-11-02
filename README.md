@@ -10,22 +10,27 @@ Crescendo is currently not distributed, as it's unfinished. It will be released 
 
 ## Usage
 ```typescript
-import Crescendo from 'crescendo'
-
-const crescendo = new Crescendo('YOUR-API-KEY-HERE')
+import Crescendo from "./crescendo";
 
 const test = async () => {
-    // Initialise Crescendo object
-    const crescendo = new Crescendo(key);
+    try {
+        // Initialise Crescendo object
+        const crescendo = new Crescendo(key);
 
-    // Get data for a given summoner name
-    const summonerData = await crescendo.summonerV4.getSummonerByName("Ranzhh", "EUW1");
+        // Get data for a given summoner name
+        const summonerData = await crescendo.summonerV4.getSummonerByName("Ranzhh", "EUW1");
 
-    // Get all normal games played by the summoner as Ashe in Season 2019.
-    const matches = await crescendo.matchV4.getMatchlist(summonerData.accountId, "EUW1",  { champion: 22, season: 13, queue: 420 }).then(console.log);
+        // Get all normal games played by the summoner as Ashe in Season 2019.
+        const matches = await crescendo.matchV4.getMatchlist(summonerData.accountId, "EUW1",  { champion: 22, season: 13, queue: 420 });
+
+        return matches;
+    } catch (err) {
+        return err.name;
+    }
+
 };
 
-test();
+test().then(console.log);
 ```
 
 ## License
