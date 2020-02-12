@@ -1,5 +1,8 @@
-import { key } from "./config.json";
+//import { key } from "./config.json";
+
 import Crescendo from "./crescendo";
+
+const key = 'MyApiKey!'
 
 const test = async () => {
     try {
@@ -7,7 +10,7 @@ const test = async () => {
         const crescendo = new Crescendo(key);
 
         // Get data for a given summoner name
-        const summonerData = await crescendo.summonerV4.getSummonerByName("ascarawcas", "EUW1");
+        const summonerData = await crescendo.summonerV4.getSummonerByName("A Summoner Name", "EUW1");
 
         // Get all ranked games played by the summoner as Ashe in Season 2019.
         const matches = await crescendo.matchV4.getMatchlist(summonerData.accountId, "EUW1",  { champion: 22, season: 13, queue: 420 });
