@@ -20,6 +20,6 @@ interface IMatchEventDto {
     participantId: number;
     buildingType: string;
     creatorId: number;
-    position: MatchPositionDto;
+    position: IMatchPositionDto;
     beforeId: number;
 }

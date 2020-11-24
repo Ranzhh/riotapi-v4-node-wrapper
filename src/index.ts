@@ -1,8 +1,7 @@
-//import { key } from "./config.json";
+import { key } from "./config.json";
 
 import Crescendo from "./crescendo";
 
-const key = 'MyApiKey!'
 
 const test = async () => {
     try {
