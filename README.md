@@ -6,7 +6,7 @@ Crescendo is a TypeScript wrapper for the [League of Legends API](https://develo
 - [Summoner V4](https://developer.riotgames.com/apis#summoner-v4): Supporting all functions.
 - [Status V4](https://developer.riotgames.com/apis#lol-status-v4): Supporting all functions.
 - [Champion Mastery V4](https://developer.riotgames.com/apis#champion-mastery-v4): Supporting all functions.
-- [Spectator V4](https://developer.riotgames.com/apis#spectator-v4): Supporting `GET_getCurrentGameInfoBySummoner`.
+- [Spectator V4](https://developer.riotgames.com/apis#spectator-v4): Supporting all functions.
 
 ## Installation
 Crescendo is currently not distributed, as it's unfinished. It will be released as a Node package once it's ready. In the meantime, you can download the source and add it to your Node.js environment manually.
