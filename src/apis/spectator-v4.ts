@@ -18,4 +18,14 @@ export class SpectatorV4 {
     public async getCurrentGameInfoBySummoner(encryptedSummonerId: string, region: string): Promise<ICurrentGameInfo> {
         return netcall<ICurrentGameInfo>(region, `spectator/v4/active-games/by-summoner/${encryptedSummonerId}`, this.key);
     }
+
+    /**
+     * Get info on the current Featured games.
+     * @link https://developer.riotgames.com/apis#spectator-v4/GET_getFeaturedGames
+     * @param region - the Region for which to gather Featured games data.
+     * @returns {Promise<IFeaturedGames>} Promised of the featured games.
+     */
+    public async getFeaturedGames(region: string): Promise<IFeaturedGames> {
+        return netcall<IFeaturedGames>(region, `spectator/v4/featured-games`, this.key);
+    }
 }
